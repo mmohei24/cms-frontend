@@ -1,0 +1,61 @@
+<div class="roles-container">
+
+
+    <div class="role-card">
+        <div class="card-header">
+            <div class="left">
+                <img src="assets/images/admin.svg" alt="">
+                <div class="text">
+                    <h2>Super Admin</h2>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+
+
+            </div>
+            <div class="right-header">
+                <div class="status">
+                    <div class="dot">
+
+                    </div>
+                    <p>Activate</p>
+                </div>
+
+                <div class="dots" (click)="show()">
+                    <div class="dot" [style.background-color]="!isShown? '#A1A5B7':'#0660FC'"></div>
+                    <div class="dot" [style.background-color]="!isShown? '#A1A5B7':'#0660FC'"></div>
+                    <div class="dot" [style.background-color]="!isShown? '#A1A5B7':'#0660FC'"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="hr"></div>
+
+        <div class="members">
+            <div class="members-numbers">
+                <p>Members</p>
+                <div class="number">3</div>
+            </div>
+            <div class="imgs-container">
+                <img src="assets/images/Image-40.svg" alt="">
+                <img src="assets/images/Image-40.svg" alt="">
+                <img src="assets/images/Image-40.svg" alt="">
+            </div>
+        </div>
+
+
+        @if (isShown) {
+        <div class="roles-status">
+            <ul>
+                <li><img src="assets/images/message-edit.svg" alt=""> Update Role</li>
+                <li> <img src="assets/images/profile-delete.svg" alt=""> Deactivate</li>
+                <li> <img src="assets/images/trash.svg" alt=""> Delete Role</li>
+            </ul>
+
+        </div>
+        }
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,110 @@
+<div class="container">
+  @if( isavailable){
+
+  <div class="add-user-container">
+    <div class="user-header">
+      <div class="header-icons">
+        <div class="header-text">
+          <h3>Create New User</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+
+        <img
+          src="assets/images/Frame 1000016151.svg"
+          alt=""
+          (click)="close()"
+        />
+      </div>
+      <div class="hr"></div>
+
+      <div class="user-background">
+        <div class="user-info">
+          <img src="assets/images/add-user.svg" alt="user-img" />
+          <div class="edit"><img src="assets/images/edit2.svg" alt="" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-form">
+      <form [formGroup]="addUser" (ngSubmit)="AddUser()">
+        <div class="full-input">
+          <label for="name"> Full Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Haitham Mohamed"
+            formControlName="fullName"
+          />
+        </div>
+
+        <div class="inputs-container">
+          <div class="input">
+            <div class="input">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                id="email"
+                placeholder="HaithamMohamed@saptiumsoftware.com"
+                formControlName="email"
+              />
+            </div>
+          </div>
+          <div class="input">
+            <label>Role & Permissions</label>
+
+            <select name="" id="">
+              <option value="">Super Admin</option>
+            </select>
+          </div>
+        </div>
+        <div class="inputs-container">
+          <div class="input">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="*****************"
+              formControlName="password"
+            />
+          </div>
+
+          <div class="input">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="***************"
+              formControlName="confirmPassword"
+            />
+          </div>
+        </div>
+
+        <div class="hr"></div>
+        <div class="user-form-footer">
+          <button (click)="close()">Cancel</button>
+          <button [disabled]="addUser.invalid" type="submit">Add User</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  }
+</div>
+
+<!-- <div
+  class="card-modal"
+  [ngClass]="{ hide: !addAccountModal, show: addAccountModal }"
+>
+  <app-card-modal
+    [title]="'Are you sure to delete the account?'"
+    [description]="
+      'Lorem ipsum is placeholder text commonly ipsum is placeholde commonly'
+    "
+    [backgroundImg]="'http://localhost:4200/assets/images/ellipse.svg'"
+    [icon_path]="'assets/images/delete_icon.svg'"
+    [cancel]="'Cancel'"
+    [action]="'Delete Account'"
+    [actionBackground]="'rgba(241, 65, 108, 1);'"
+    (actionBtn)="AddUser()"
+    (cancelBtn)="closeModal()"
+  ></app-card-modal>
+</div> -->

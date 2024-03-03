@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<div class="container">
+  <div class="formDiv">
+    <div class="projName">
+      <img src="../../../assets/images/Icon.png" alt="ProjectIcon" />
+      <p>CMS Software</p>
+    </div>
+
+    <div style="text-align: center" class="loginDiv">
+        <h1>Email Verification</h1>
+        <p class="info1">We sent OTP code to <span style="color: #0660FC;">Hait*********.com</span></p>
+        <img
+          style="margin-left: auto; margin-right: auto"
+          src="../../../assets/images/smartphone.svg"
+          alt="OTP photo"
+        />
+        
+        <form
+            action=""
+            [formGroup]="formVerification"
+            (ngSubmit)="verificationSubmit()"
+            #form="ngForm"
+          >
+            <div>
+              <label for="verificationCode" class="labelInput"
+                >Type your 6 digit security code </label
+              ><br />
+              <div class="verificationInpts">
+                <input
+                  type="text"
+                  maxlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  class="inputVerificationStyle"
+                  id="verificationCode"
+                  [(ngModel)]="str1"
+                  formControlName="verificationCode1"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode1.touched &&
+                      formVerification.controls.verificationCode1.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode1.touched &&
+                      formVerification.controls.verificationCode1.errors ==
+                        null &&
+                      formVerification.controls.verificationCode1.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode1.errors &&
+                      formVerification.controls.verificationCode1.dirty, 
+                  }"
+
+                />
+                <input
+                  type="text"
+                  maxlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+                  [(ngModel)]="str2"
+                  formControlName="verificationCode2"
+                  [ngClass]="{
+                    'is-invalid1':
+                    formVerification.controls.verificationCode2.touched &&
+                    formVerification.controls.verificationCode2.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode2.touched &&
+                      formVerification.controls.verificationCode2.errors ==
+                        null &&
+                      formVerification.controls.verificationCode2.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode2.errors &&
+                      formVerification.controls.verificationCode2.dirty, 
+                  }"
+                />
+                <input
+                  type="text"
+                  maxlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  [(ngModel)]="str3"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+
+                  formControlName="verificationCode3"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode3.touched &&
+                      formVerification.controls.verificationCode3.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode3.touched &&
+                      formVerification.controls.verificationCode3.errors ==
+                        null &&
+                      formVerification.controls.verificationCode3.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode3.errors &&
+                      formVerification.controls.verificationCode3.dirty, 
+                  }"
+                />
+                <input
+                  type="text"
+                  maxlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+                  [(ngModel)]="str4"
+                  formControlName="verificationCode4"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode4.touched &&
+                      formVerification.controls.verificationCode4.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode4.touched &&
+                      formVerification.controls.verificationCode4.errors ==
+                        null &&
+                      formVerification.controls.verificationCode4.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode4.errors &&
+                      formVerification.controls.verificationCode4.dirty, 
+                  }"
+                />
+                <input
+                  type="text"
+                  maxlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+                  [(ngModel)]="str5"
+                  formControlName="verificationCode5"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode5.touched &&
+                      formVerification.controls.verificationCode5.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode5.touched &&
+                      formVerification.controls.verificationCode5.errors ==
+                        null &&
+                      formVerification.controls.verificationCode5.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode5.errors &&
+                      formVerification.controls.verificationCode5.dirty, 
+                  }"
+                />
+                <input
+                  type="text"
+                  maxlength="1"
+                  
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+                  [(ngModel)]="str6"
+                  formControlName="verificationCode6"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode6.touched &&
+                      formVerification.controls.verificationCode6.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode6.touched &&
+                      formVerification.controls.verificationCode6.errors ==
+                        null &&
+                      formVerification.controls.verificationCode6.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode6.errors &&
+                      formVerification.controls.verificationCode6.dirty, 
+                  }"
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              [disabled]="formVerification.invalid"
+            >
+              Submit Code
+            </button>
+            <p class="info2">
+              Dont't get the code ? <a (click)="resendOTP()">Resend</a> or
+              <a>call us</a>
+            </p>
+            <!-- <input type="submit"> -->
+          </form>
+    </div>
+    <div class="paragraphs">
+      <p class="info">
+      By signing up you agree to out
+      <a style="font-weight: 400" href="">Terms</a> and
+      <a href="" style="font-weight: 400">privacy policy</a>
+    </p>
+    </div>
+    
+  </div>
+
+  <div class="SlidesContainer">
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <!-- Full-width images with number and caption text -->
+      <div id="mySlide" class="mySlides">
+        <div class="cardDiv">
+
+          <!-- <img src="../../../assets/images/Right side (4).svg" alt="Slides" class="img1" /> -->
+        </div>
+        <!-- <div class="text">
+          <p>Manage Any Content Anywhere</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            repellat modi dicta suscipit vero
+          </p>
+        </div> -->
+      </div>
+      <!-- Next and previous buttons -->
+      <!-- <div style="display: flex; justify-content: space-between; position: relative; top: -50%;">
+        <a class="prev" (click)="prevSlides()">&#10094;</a>
+        <a class="next" (click)="nextSlides()">&#10095;</a>
+      </div> -->
+    </div>
+    <!-- The dots/circles -->
+  </div>
+</div>

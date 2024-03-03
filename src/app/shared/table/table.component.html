@@ -1,0 +1,22 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30px;"><input type="checkbox" /></th>
+        @for (data of headdata; track $index) {
+        <th>{{ data }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of bodydata; track $index) {
+      <tr>
+        <td style="width: 30px;"><input type="checkbox" /></td>
+        @for (data of bodydata; track data) {
+        <td>{{ data }}</td>
+        }
+      </tr>}
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>

@@ -1,0 +1,53 @@
+<div class="container">
+  <div>
+    <div class="col-12">
+      <div class="section-title">
+        <h3>User Management</h3>
+        <small>Mange your users and roles</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card">
+      <app-card
+        [icon_path]="'assets/images/user-management-count.svg'"
+        [title]="'Active Users'"
+        [description]="'Total user number'"
+        [description_continue]="'in this system'"
+        [total_number]="'3500'"
+        (onCall)="('sss')"
+      ></app-card>
+    </div>
+    <div class="card">
+      <app-card
+        [icon_path]="'assets/images/user-management-count.svg'"
+        [title]="'Active Users'"
+        [description]="'Total user number'"
+        [description_continue]="'in this system'"
+        [total_number]="'3500'"
+      ></app-card>
+    </div>
+
+    <div class="card">
+      <app-card
+        [icon_path]="'assets/images/user-square.svg'"
+        [title]="'Deactive Users'"
+        [description]="'Total user number'"
+        [description_continue]="'in this system'"
+        [total_number]="'1500'"
+      ></app-card>
+    </div>
+
+    <div class="card">
+      <app-card
+        [icon_path]="'assets/images/user-management-count.svg'"
+        [title]="'Active Users'"
+        [description]="'Total user number'"
+        [description_continue]="'in this system'"
+        [total_number]="'3500'"
+      ></app-card>
+    </div>
+  </div>
+  <app-table headdata="{{headdata}}" bodydata="{{bodydata}}"></app-table>
+</div>

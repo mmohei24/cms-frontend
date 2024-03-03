@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 breadcrumb-col">
+      <div class="breadcrumb">
+        <!-- <div class="stage">
+          <img src="assets/images/dashboard.svg" alt="dashboard" />
+          <img
+            src="assets/images/profile-circle-dark.svg"
+            alt="profile-circle-dark"
+          />
+          {{ fullPath[1] | uppercase }}
+        </div> -->
+
+        @for (path of fullPath; track i; let i = $index) {
+        <div class="stage">
+          {{ path | titlecase }}
+
+          @if (fullPath[i] !== fullPath[fullPath.length - 1]) {
+          <span>></span>
+          }
+        </div>
+
+        }
+      </div>
+    </div>
+    <div class="col-8 header-right-side">
+      <div class="row">
+        <div class="col-4 middle-section">
+          <div class="search-notify-message">
+            <div class="seacrhInput">
+              <input
+                type="search"
+                name="search"
+                id="search"
+                (input)="search($event)"
+                placeholder="Search for anything here"
+              />
+              <img
+                class="magnifier"
+                src="assets/images/magnifier.svg"
+                alt="magnifier"
+              />
+            </div>
+
+            <div class="notification">
+              <div class="notify">
+                <img
+                  src="assets/images/notification-bing.svg"
+                  alt="bing"
+                  class="notification-img"
+                />
+                <span class="number-of-notification">5</span>
+              </div>
+            </div>
+
+            <div class="message">
+              <div class="message-content">
+                <img
+                  src="assets/images/notification-statu.svg"
+                  alt="bing"
+                  class="notification-img"
+                />
+                @if (notification_status) {
+                <span class="number-of-notification"></span>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="user-profile" (click)="userMenuToggled()">
+            <div>
+              <div class="user-content-img">
+                <img
+                  src="https://s3-alpha-sig.figma.com/img/c9c6/4f89/610532d55faa08c0e9757f8eaf082064?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PQsvfrHW1Edq0R8ut~kBdxS-aLM~dKN45rQ4Q4VcAwCJMRV90BD9QKXQvuyHmSHu9N0SM1o0EPfZQC7xS4QT~UJmfO~TDioNd0jPYhOGZXNQOi~mRen0ZLUKWLR6t5Qp6ySJL-gZph-zLT1tpIZ8-RVgCVlXoqn7zU5wV6wko68SKLPi15NdWTYH8O9woI~M0EjIWpnmcEhujAosZi67GIHEy9OyL87jhs0cgz3oitZ0YUiCrARD9vaEk65yLCwjctOWov-2E33XD9c5X62D7vhQR-1A8ptZrVNfeEVUNXRPd9BYTrn7e7VOCtXtmjj3dT7lQanqw35o5Q9zmWA79w__"
+                  alt=""
+                />
+              </div>
+              <div class="user-content-info">
+                <h4>Haitham Mohamed</h4>
+                <small>Super admin</small>
+              </div>
+            </div>
+
+            <div class="user-arrow">
+              <img src="assets/images/userprofile-arrow.svg" alt="downarrow" />
+            </div>
+            @if (toggleUserMenu) {
+            <div class="user-dropdown">
+              <ul>
+                <li>
+                  <img
+                    src="assets/images/profile-circle-blue.svg"
+                    alt="logout"
+                  />
+                  Account Information
+                </li>
+                <li>
+                  <img src="assets/images/cheque.svg" alt="logout" />
+
+                  My Subscription
+                </li>
+
+                <li>
+                  <img src="assets/images/exit-right.svg" alt="logout" />
+
+                  Log out
+                </li>
+              </ul>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

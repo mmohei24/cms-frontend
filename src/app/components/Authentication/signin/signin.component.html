@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<div class="container">
+  <div class="projName">
+    <div class="nameContainer">
+      <div><img src="../../../assets/images/Icon.png" alt="Logo" /></div>
+      <div class="projNDiv"><p class="Name">CMS Software</p></div>
+    </div>
+
+    
+  </div>
+
+  <div
+    class="container1"
+    [ngClass]="{ 'flip-out': Index == 2, 'flip-in': Index == 1 }"
+    [ngClass]="{ 'flip-out': Index == 3, 'flip-in': Index == 4 }"
+    [ngClass]="{ 'flip-out': Index == 5, 'flip-in': Index == 6 }"
+
+  >
+
+    <div class="loginContainer" id="loginContainerId" [@flipInOut]>
+      <div class="bg">
+        <div class="loginDiv">
+          <h1>
+            Welcome! 👋
+            <!-- <i class="fa-solid fa-hand fa-flip-horizontal fa-lg" style="color: #FFD43B;"></i> -->
+          </h1>
+          <p class="info1">Login in to your CMS System account</p>
+          <div>
+            <form
+              action=""
+              [formGroup]="formInfo"
+              (ngSubmit)="Submit()"
+              #form="ngForm"
+            >
+              <div>
+                <label class="form-label" for="fromInput2">Email</label>
+                <input
+                  type="email"
+                  class="form-input"
+                  id="fromInput2"
+                  placeholder="i.e. Haitham.mo@company.com"
+                  formControlName="email"
+                  [ngClass]="{
+                    'is-invalid':
+                      formInfo.controls.email.touched &&
+                      formInfo.controls.email.errors
+                  }"
+                />
+                @if (formInfo.controls.email.touched &&
+                formInfo.controls.email.errors) {
+                <div class="invalid-feedback">
+                  @if (formInfo.controls.email.errors['required']) {
+                  <p>Email is required</p>
+                  } @if (formInfo.controls.email.errors['email']) {
+                  <p>Email is invalid</p>
+                  }
+                </div>
+                }
+              </div>
+              <div class="label-div">
+                <label class="form-label" for="fromInput3">Password</label>
+                @if (showPass) {
+                  <input
+                  type="text"
+                  class="form-input"
+                  id="fromInput3"
+                  placeholder="********************"
+                  formControlName="password"
+                  [ngClass]="{
+                    'is-invalid':
+                      formInfo.controls.password.touched &&
+                      formInfo.controls.password.errors
+                  }"
+                />
+                }
+                @else {
+                  <input
+                  type="password"
+                  class="form-input"
+                  id="fromInput3"
+                  placeholder="********************"
+                  formControlName="password"
+                  [ngClass]="{
+                    'is-invalid':
+                      formInfo.controls.password.touched &&
+                      formInfo.controls.password.errors
+                  }"
+                />
+                }
+                
+                @if(showPass){
+                  <fa-icon
+                    [icon]="faEye"
+                    class="EyeIcon"
+                    (click)="showPassword()"
+                  ></fa-icon>
+                  }@else {
+                  <fa-icon
+                    [icon]="faEyaSlash"
+                    class="EyeIcon"
+                    (click)="showPassword()"
+                  ></fa-icon>
+                  }
+                @if (formInfo.controls.password.touched &&
+                formInfo.controls.password.errors) {
+                <div class="invalid-feedback">
+                  @if (formInfo.controls.password.errors['required']) {
+                  <p>Password is required</p>
+                  }
+                </div>
+              }</div>
+              <div class="checkbox">
+                <div class="checkDiv">
+                  <input type="checkbox" id="checkbox" (change)="checkbox()" name="checkbox" />
+                  <label for="checkbox" id="checkLabel">Remember me</label>
+                </div>
+                <!-- <label style="display: inline; border: 1px solid #BFD4E466; width: 18px; height: 18px;"></label> -->
+                
+                <a routerLink="/sendmail"><p id="forget">Forget password?</p></a>
+              </div>
+              <button 
+              [ngClass]="{disabled:formInfo.invalid}" 
+              type="submit" [disabled]="!form.valid">LOG IN</button>
+              <p class="info22">
+                Dont't have an Account? <a routerLink="/signup">Register</a>
+              </p>
+              <!-- <input type="submit"> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+     <!-- @if (Index == 2) { -->
+    <!-- <div class="resetContainer" id="resetContainerId">
+      <div class="bg2">
+        <div class="resetDiv">
+          <form action="" [formGroup]="formSendMail" (ngSubmit)="resetSubmit()" #resetform="ngForm">
+            <div>
+              <h1>Forget Password</h1>
+              <p class="info1">
+                Enter your email , send link to reset password
+              </p>
+            </div>
+            <div>
+              <label class="form-label" for="fromInput2">Email:</label>
+              <input
+                type="email"
+                class="form-input"
+                id="fromInput2"
+                placeholder="i.e. Haitham.mo@company.com"
+                formControlName="forgetEmail"
+                [ngClass]="{
+                  'is-invalid':
+                    formSendMail.controls.forgetEmail.touched &&
+                    formSendMail.controls.forgetEmail.errors
+                }"
+              />
+              @if (formSendMail.controls.forgetEmail.touched &&
+              formSendMail.controls.forgetEmail.errors) {
+              <div class="invalid-feedback">
+                @if (formSendMail.controls.forgetEmail.errors['required']) {
+                <p>Email is required</p>
+                } @if (formSendMail.controls.forgetEmail.errors['email']) {
+                <p>invalid email. please verify agian</p>
+                }
+              </div>
+              }
+            </div>
+            <button
+              type="submit"
+              [disabled]="formSendMail.invalid"
+            >
+              Reset password
+            </button>
+            <p class="info2">
+              Did you remember your password?
+              <a (click)="showLoginin()">LOG IN</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div> -->
+    <!-- } @if (Index==3) { -->
+    <!-- <div class="loginContainer" id="loginContainerId">
+      <div class="bg3">
+        <div style="text-align: center" class="loginDiv">
+          <h1>Email Verification</h1>
+          <p class="info1">We sent OTP code to</p>
+          <img
+            style="margin-left: auto; margin-right: auto"
+            src="../../../assets/images/smartphone.svg"
+            alt="OTP photo"
+          />
+          <div>
+            <form
+              action=""
+              [formGroup]="formVerification"
+              (ngSubmit)="verificationSubmit()"
+              #form="ngForm"
+            >
+              <div>
+                <label for="verificationCode" class="labelInput"
+                  >Type your 6 digit security code</label
+                ><br />
+                <div class="verificationInpts">
+                  <input
+                    type="number"
+                    maxlength="1"
+                    minlength="1"
+                    class="inputVerificationStyle"
+                    id="verificationCode"
+                    formControlName="verificationCode1"
+                    [ngClass]="{
+                      'is-invalid':
+                        formVerification.controls.verificationCode1.touched &&
+                        formVerification.controls.verificationCode1.errors
+                    }"
+
+                  />
+                  <input
+                    type="number"
+                    maxlength="1"
+                    minlength="1"
+                    class="inputVerificationStyle"
+                    id="verificationNum"
+
+                    formControlName="verificationCode2"
+                    [ngClass]="{
+                      'is-invalid':
+                      formVerification.controls.verificationCode2.touched &&
+                      formVerification.controls.verificationCode2.errors
+                    }"
+                  />
+                  <input
+                    type="number"
+                    maxlength="1"
+                    minlength="1"
+                    class="inputVerificationStyle"
+                    id="verificationNum"
+
+                    formControlName="verificationCode3"
+                    [ngClass]="{
+                      'is-invalid':
+                        formVerification.controls.verificationCode3.touched &&
+                        formVerification.controls.verificationCode3.errors
+                    }"
+                  />
+                  <input
+                    type="number"
+                    maxlength="1"
+                    minlength="1"
+                    class="inputVerificationStyle"
+                    id="verificationNum"
+
+                    formControlName="verificationCode4"
+                    [ngClass]="{
+                      'is-invalid':
+                        formVerification.controls.verificationCode4.touched &&
+                        formVerification.controls.verificationCode4.errors
+                    }"
+                  />
+                  <input
+                    type="number"
+                    maxlength="1"
+                    minlength="1"
+                    class="inputVerificationStyle"
+                    id="verificationNum"
+
+                    formControlName="verificationCode5"
+                    [ngClass]="{
+                      'is-invalid':
+                        formVerification.controls.verificationCode5.touched &&
+                        formVerification.controls.verificationCode5.errors
+                    }"
+                  />
+                  <input
+                    type="number"
+                    maxlength="1"
+                    minlength="1"
+                    class="inputVerificationStyle"
+                    id="verificationNum"
+
+                    formControlName="verificationCode6"
+                    [ngClass]="{
+                      'is-invalid':
+                        formVerification.controls.verificationCode6.touched &&
+                        formVerification.controls.verificationCode6.errors
+                    }"
+                  />
+                </div>
+              </div>
+              <button
+                type="submit"
+
+              >
+                Reset password
+              </button>
+              <p class="info2">
+                Dont't get the code ? <a routerLink="/signup">Resend</a> or
+                <a routerLink="/signup">call us</a>
+              </p>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- } @if (Index == 4) { -->
+    <!-- <div class="loginContainer" id="loginContainerId">
+      <div class="bg3">
+        <div class="loginDiv">
+          <h1>Set a new password</h1>
+          <p class="info1">
+            New password must be different from your previous passwords
+          </p>
+          <div>
+            <form action="" [formGroup]="formSetNewPassword" (ngSubmit)="setNewPassword()" #setnewpassform="ngForm">
+              <div class="label-div">
+                <label class="form-label" for="fromInput3">Password</label>
+                <input
+                  type="password"
+                  class="form-input passwordCheck"
+                  id="fromInput3"
+                  placeholder="********************"
+                  formControlName="password"
+                  [ngClass]="{
+                      'is-invalid':
+                      formSetNewPassword.controls.password.touched &&
+                      formSetNewPassword.controls.password.errors,
+                      'is-valid':
+                      formSetNewPassword.controls.password.touched &&
+                      formSetNewPassword.controls.password.errors == null ,
+                      'is-touched':
+                      formSetNewPassword.controls.password.untouched &&
+                      formSetNewPassword.controls.password.errors == null,
+                  }"
+                  (focusin)="test()"
+                  (focusout)="test()"
+                />
+
+                <br />
+                <div class="passwordCheckContainer">
+                  <div class="invalid-feedback" [hidden]="!passwordHint">
+                    <div class="strongth-password">
+                      @if(formSetNewPassword.controls.password.value!.length < 6 ||
+                      formSetNewPassword.controls.password.value!.length >= 6 &&
+                      formSetNewPassword.controls.password.errors){
+                      <div class="bar" id="week"></div>
+                      <div class="bar" id="mediumH"></div>
+                      <div class="bar" id="strongH"></div>
+
+                      } @if(formSetNewPassword.controls.password.value!.length >= 6 &&
+                      formSetNewPassword.controls.password.value!.length < 15 &&
+                      formSetNewPassword.controls.password.errors==null){
+                      <div class="bar" id="mediumS"></div>
+                      <div class="bar" id="medium" #medium></div>
+                      <div class="bar" id="strongH"></div>
+
+                      } @if(formSetNewPassword.controls.password.value!.length >= 15 &&
+                      formSetNewPassword.controls.password.errors==null){
+                      <div class="bar" id="weekH"></div>
+                      <div class="bar" id="strongS" #medium></div>
+                      <div class="bar" id="strong" #strong></div>
+
+                      }
+                    </div>
+                  </div>
+                  <p
+                    id="passHint"
+                    [ngClass]="{ show: passwordHint }"
+                    [ngClass]="{ hide: passwordHint }"
+                  >
+                    Password hint : 8 characters minimum
+                  </p>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-around;
+                    "
+                  >
+                    <div style="margin-right: 5px" [hidden]="!passwordHint">
+                      @if(formSetNewPassword.controls.password.value!.length < 6 ||
+                      formSetNewPassword.controls.password.value!.length >= 6 &&
+                      formSetNewPassword.controls.password.errors){
+                      <p class="passCheckWord">Password: Week</p>
+                      } @if(formSetNewPassword.controls.password.value!.length >= 6 &&
+                      formSetNewPassword.controls.password.value!.length < 15 &&
+                      formSetNewPassword.controls.password.errors==null){
+                      <p class="passCheckWord">Password: Meduim</p>
+                      } @if(formSetNewPassword.controls.password.value!.length >= 15 &&
+                      formSetNewPassword.controls.password.errors==null){
+                      <p class="passCheckWord">Password: Strong</p>
+                      }
+                    </div>
+                    <button class="tooltip">
+                      !
+                      <ul class="tooltiptext">
+                        Your Password Must Contain:
+                        <li>
+                          <span
+                            class="correctIcon"
+                            [ngClass]="{
+                              changeBG: numberLength
+                            }"
+                            >✔</span
+                          >At least 8 characters
+                        </li>
+                        <li>
+                          <span
+                            class="correctIcon"
+                            [ngClass]="{
+                              changeBG: uppercase
+                            }"
+                            >✔</span
+                          >At least One Capital Letter
+                        </li>
+                        <li>
+                          <span
+                            class="correctIcon"
+                            [ngClass]="{
+                              changeBG: Number
+                            }"
+                            >✔</span
+                          >At least One Numbers
+                        </li>
+                        <li>
+                          <span
+                            class="correctIcon"
+                            [ngClass]="{
+                              changeBG: specialChar
+                            }"
+                            >✔</span
+                          >At least One Special Character:!#$%^&*()_+.
+                        </li>
+                      </ul>
+
+                    </button>
+                  </div>
+                </div>
+              <div class="label-div">
+                <label class="form-label" for="fromInput4">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-input"
+                  id="fromInput4"
+                  formControlName="confirmPassword"
+                  placeholder="********************"
+                  [ngClass]="{
+                    'is-invalid':
+                    formSetNewPassword.controls.confirmPassword.touched &&
+                    formSetNewPassword.controls.confirmPassword.errors,
+                    'is-valid':
+                    formSetNewPassword.controls.confirmPassword.touched &&
+                    formSetNewPassword.controls.confirmPassword.errors == null ,
+                    'is-touched':
+                    formSetNewPassword.controls.confirmPassword.untouched &&
+                    formSetNewPassword.controls.confirmPassword.errors == null,
+                }"
+                />
+                @if (formSetNewPassword.controls.confirmPassword.touched &&
+                formSetNewPassword.controls.confirmPassword.errors) {
+                <div class="invalid-feedback">
+                  @if (formSetNewPassword.controls.confirmPassword.errors['required']) {
+                  <p class="required">Confirm Password is required</p>
+                  } @if (formSetNewPassword.controls.confirmPassword.errors['passwordMismatch']) {
+                  <p>Confirm Password does not match</p>
+                  }
+                </div>
+                }
+              </div>
+              <button
+                type="submit"
+                [disabled]="formSetNewPassword.invalid"
+
+              >
+                Reset password
+              </button>
+              <p class="info2">
+                Dont't get the code ? <a>Resend</a> or
+                <a>call us</a>
+              </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- } -->
+    <!-- @if (Index == 5) {
+    <div class="loginContainer" id="loginContainerId">
+      <div class="bg3">
+        <div class="loginDiv">
+          <div style="padding-top: 250px">
+            <h1>Password Changed</h1>
+            <p class="info1">Your password has been changed</p>
+            <button (click)="showLogout()">LOG IN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    } -->
+    <!-- @if (Index == 6) {
+    <div class="loginContainer" id="loginContainerId">
+      <div>
+        <div class="loginDiv1">
+          <div style="text-align: center">
+            <img src="../../../assets/images/Object.svg" alt="Logout" />
+            <h1 class="logout">You have logout</h1>
+            <p class="info1">Redirecting in 5 seconds</p>
+            <p>Go to <a (click)="showLoginin()">Login</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    } -->
+  </div>
+</div>

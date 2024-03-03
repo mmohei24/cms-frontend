@@ -1,0 +1,258 @@
+<div
+  class=""
+  [ngClass]="{ lowOpacity: deleteAccountModal, container: !deleteAccountModal }"
+>
+  @if( isavailable){
+
+  <div class="user-profile-container">
+    <div class="user-header">
+      <div class="header-icons">
+        <div class="refresh">
+          <img src="assets/images/refresh-2.svg" alt="" />
+
+          <p>Last update : Today,15:05pm</p>
+        </div>
+
+        <img src="assets/images/cross-square.svg" alt="" (click)="close()" />
+      </div>
+
+      <div class="user-info">
+        <img
+          src="assets/images/Screenshot 2024-02-14 092120.png"
+          alt="user-img"
+        />
+        <div class="edit"><img src="assets/images/edit.svg" alt="" /></div>
+        <h3>Haitham Mohamed</h3>
+        <p>Supper Admin</p>
+      </div>
+
+      <div class="user-actions">
+        <div class="a-box" (click)="display('edit')" [class.active]="activeTab == 'edit'">
+          <a >
+            Information</a
+          >
+        </div>
+
+        <div class="hr"></div>
+        <div class="a-box">
+          <a
+            (click)="display('change-password')"
+            [class.active]="activeTab == 'change-password'"
+            >Password</a
+          >
+        </div>
+
+        <div class="hr"></div>
+        <div class="a-box"  (click)="display('activity')"
+        [class.active]="activeTab == 'activity'">
+          <a
+           
+            >Activity log</a
+          >
+        </div>
+      </div>
+    </div>
+    @if(activeTab=='edit'){
+    <div class="user-form">
+      <div class="user-form-header">
+        <div class="inner-text">
+          <h3>Edit account information</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+        <button>Edit</button>
+      </div>
+      <div class="hr2"></div>
+
+      <form>
+        <div class="inputs-container">
+          <div class="input">
+            <label for="name">Name</label>
+            <input type="text" id="name" value="Haitham Mohamed" disabled />
+          </div>
+          <div class="input">
+            <label for="role">Role& permissions</label>
+            <input type="text" id="role" value="Super Admin" disabled />
+          </div>
+        </div>
+        <div class="inputs-container">
+          <div class="input">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              value="HaithamMohamed@saptiumsoftware.com"
+              disabled
+            />
+          </div>
+          <div class="select">
+            <label for="number">Phone</label>
+            <div class="phone">
+              <select name="" id="">
+                <!-- <option value=""><img src="Group.svg" alt=""></option> -->
+              </select>
+              <input type="text" value="+1258525645-555" disabled />
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="hr3"></div>
+      <div class="user-form-footer">
+        <div class="inner-text">
+          <h3>Delete Account</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+        <button (click)="openModal()">Delete Account</button>
+      </div>
+    </div>
+    } @if(activeTab=='change-password'){
+
+    <div class="user-form">
+      <div class="user-form-header">
+        <div class="inner-text">
+          <h3>Change Password</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+        <button>Edit</button>
+      </div>
+      <div class="hr2"></div>
+
+      <div class="form-container">
+        <form action="">
+          <div class="input">
+            <label for="password">Current Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter the Current Password"
+              disabled
+            />
+          </div>
+
+          <div class="input">
+            <label for="password">Password</label>
+            <input type="password" id="password" value="12345678910" disabled />
+          </div>
+
+          <div class="input">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              value="12345678910"
+              disabled
+            />
+          </div>
+        </form>
+        <img src="assets/images/Group 1000016543.svg" alt="" />
+      </div>
+    </div>
+    } @if(activeTab=='activity'){
+    <div class="user-form">
+      <div class="user-form-header">
+        <div class="inner-text">
+          <h3>Activity Log</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+        <div class="search">
+          <img src="assets/images/magnifier.svg" alt="search" />
+          <input type="text" placeholder="search..." />
+        </div>
+      </div>
+<div class="hr2"></div>
+      <div class="activity">
+        <ul>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/message-text.svg" alt="" />
+              </div>
+              There are 2 new comment for you in “AirPlus Mobile App” .
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/pin.svg" alt="" />
+              </div>
+              New Blog post is assigned to you.
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/files-folders.svg" alt="" />
+              </div>
+              12 new Files uploaded now.
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/message-text.svg" alt="" />
+              </div>
+              There are 2 new comment for you in “AirPlus Mobile App” .
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/files-folders.svg" alt="" />
+              </div>
+              12 new Files uploaded now .
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/message-text.svg" alt="" />
+              </div>
+              New Blog post is assigned to you .
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</div>
+
+<div
+  class="card-modal"
+  [ngClass]="{ hide: !deleteAccountModal, show: deleteAccountModal }"
+>
+  <app-card-modal
+    [title]="'Are you sure to delete the account?'"
+    [description]="
+      'Lorem ipsum is placeholder text commonly ipsum is placeholde commonly'
+    "
+    [backgroundImg]="'http://localhost:4200/assets/images/ellipse.svg'"
+    [icon_path]="'assets/images/delete_icon.svg'"
+    [cancel]="'Cancel'"
+    [action]="'Delete Account'"
+    [actionBackground]="'rgba(241, 65, 108, 1);'"
+    (actionBtn)="deleteAccount()"
+    (cancelBtn)="closeModal()"
+
+  ></app-card-modal>
+</div>

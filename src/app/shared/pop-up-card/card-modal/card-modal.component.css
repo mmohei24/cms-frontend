@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  font-family: "DM sans";
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.delete-icon {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+.row {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.card {
+  width: 380px;
+  height: 313px;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.icon {
+  width: 100%;
+  text-align: center;
+  background: fixed no-repeat
+    url("http://localhost:4200/assets/images/ellipse.svg") left;
+}
+
+.card-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.card .icon img {
+  width: 25%;
+}
+
+span {
+  color: rgba(241, 65, 108, 1);
+}
+
+.card-actions {
+  margin: 0;
+  border-top: 0.75px solid rgba(191, 212, 228, 0.2);
+  /* border-top: 1px solid; */
+  padding: 15px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 14px 20px 14px 20px;
+  border-radius: 7px;
+  font-weight: 500;
+  font-size: 14;
+  width: 166px;
+}
+
+.action {
+  background-color: rgba(241, 65, 108, 1);
+  color: #fff;
+  border: 0px;
+  cursor: pointer;
+}
+
+.cancel {
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background-color: #fff;
+  color: rgba(94, 98, 120, 1);
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}

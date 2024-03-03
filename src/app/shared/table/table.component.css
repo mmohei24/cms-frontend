@@ -1,0 +1,85 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  /* -webkit-box-sizing: border-box; */
+  font-family: "DM sans";
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: left;
+  align-items: center;
+  padding: 1%;
+  background-color: #f9fafc;
+}
+table {
+  background-color: var(--white);
+  border-radius: 10px;
+  width: 100%;
+  /* display: table-caption; */
+  /* border-spacing: collapse; */
+  /* border: none; */
+  padding: 10px;
+  border: 1px solid #BFD4E466;
+   
+}
+
+
+/* tr:nth-child(1){
+    margin-bottom: 20px;
+} */
+thead{
+  /* margin-bottom: 10px; */
+  outline: 1px solid #BFD4E466;
+  border-radius: 5px;
+  /* display: table-header-group; */
+  margin-bottom: 5px;
+} 
+th{
+  padding: 10px;
+  margin-bottom: 5px !important;
+}
+tbody{
+  /* outline: 1px solid #BFD4E466; */
+}
+tbody:before {
+  /* This doesn't work because of border-collapse */
+  line-height:0.5em;
+  content:".";
+  color:white; /* bacground color */
+  display:block;
+}
+
+tbody tr{
+  outline: 1px solid #BFD4E466;
+}
+tr {
+    /* border: solid 2px #BFD4E466;  */
+    border-style: solid solid; 
+    padding: 20px;
+    /* outline: 1px solid gray; */
+    margin: 5px;
+    margin: 10px;
+    /* background-color: rgba(255, 228, 196, 0.753); */
+}
+th{
+  padding: 8px;
+}
+ tr ,
+td {
+  padding: 12px;
+} 
+input[type='checkbox']{
+  border: 1px solid #bfd4e466 !important;
+  accent-color: #0660fc;
+  border-radius: 10px;
+  /* accent-color: red; */
+}

@@ -1,0 +1,271 @@
+<div
+  class="container sidebar"
+  [ngClass]="{ darkTheme: darkMode, 'sidebar-toggle': sidebarToggler }"
+>
+  <div
+    [ngClass]="
+      sidebarToggler ? 'toggle-sidebar-btn-rotated' : 'toggle-sidebar-btn'
+    "
+    (click)="togglesidebar()"
+  >
+    <div class="arrow">
+      <img src="assets/images/toggle-sidebar.svg" alt="toggle-sidebar" />
+    </div>
+  </div>
+
+  <div class="sidebar-top-section">
+    <div class="row">
+      <div
+        class="col-12"
+        [ngClass]="
+          !sidebarToggler ? 'sidebar-header' : 'sidebar-header-show-logo-only'
+        "
+      >
+        <div class="col-5">
+          <div class="image">
+            <img src="assets/images/Icon.png" alt="Logo" />
+          </div>
+        </div>
+        <div
+          class="col-7 sidebar-header-content"
+          [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+        >
+          <div class="title">
+            <h4>CMS Software</h4>
+            <small>Manage your blog</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div
+        class="col-12 sidebar-menu"
+        [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+      >
+        <h5>Home</h5>
+      </div>
+      <div class="col-12 main">
+        <ul class="main-list">
+          <li>
+            <a href="dashboard">
+              <div class="icon">
+                <img src="assets/images/dashboard.svg" alt="dashboard" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Dashboard
+              </div>
+            </a>
+          </li>
+          <li
+            [routerLink]="['/cms/blogs']"
+            [routerLinkActive]="sidebarToggler ? 'active' : 'darkTheme_active'"
+          >
+            <a>
+              <div class="icon">
+                <img src="assets/images/blog-posts.svg" alt="blog-posts" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Blog Posts
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="media">
+              <div class="icon">
+                <img
+                  src="assets/images/media-management.svg"
+                  alt="media-management"
+                />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Media Management
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="seo">
+              <div class="icon">
+                <img src="assets/images/seo.svg" alt="seo" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                SEO
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="reporting an">
+              <div class="icon">
+                <img src="assets/images/analytic.svg" alt="report&analytic" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Report & analytic
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="comments">
+              <div class="icon">
+                <img src="assets/images/comments.svg" alt="comments" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Comments
+              </div>
+            </a>
+          </li>
+          <li
+            (click)="Dropdowntoggle()"
+            [ngClass]="{ darkTheme_active: darkMode, active: !darkMode }"
+            [routerLinkActive]="darkMode ? 'darkTheme_active' : 'active'"
+            [routerLinkActiveOptions]="{ exact: false }"
+          >
+            <div class="drop-down">
+              <div class="icon">
+                @if (darkMode) {
+                <img src="assets/images/profile-circle.svg" alt="profile" />
+
+                } @else{
+                <img
+                  src="assets/images/profile-circle-dark.svg"
+                  alt="profile"
+                />
+                }
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                <div
+                  [ngClass]="{
+                    hide: sidebarToggler,
+                  }"
+                >
+                  User Management
+                </div>
+
+                @if(darkMode && sidebarToggler ){
+                <img
+                  [hidden]="sidebarToggler"
+                  [ngClass]="{ rotate: active, 'reverse-rotate': !active }"
+                  src="assets/images/angle-up-solid-dark.svg"
+                  alt="up-arrow"
+                />} @else{
+                <img
+                  [hidden]="sidebarToggler"
+                  [ngClass]="{ rotate: active, 'reverse-rotate': !active }"
+                  src="assets/images/up-arrow.svg"
+                  alt="up-arrow"
+                />
+                } @if(active && !sidebarToggler){
+                <div class="sub-links">
+                  <ul>
+                    <li
+                      [routerLink]="['/cms/management/users']"
+                      routerLinkActive="active-sublink"
+                      (click)="Dropdowntoggle()"
+                    >
+                      <a> Manage Users </a>
+                    </li>
+                    <li
+                      [routerLink]="['/cms/management/roles']"
+                      routerLinkActive="active-sublink"
+                      (click)="[Dropdowntoggle()]"
+                    >
+                      <a>Manage Roles</a>
+                    </li>
+                  </ul>
+                </div>
+                }
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-bottom-section">
+    <div class="row">
+      <div
+        class="col-12 sidebar-menu"
+        [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+      >
+        <h5>Pages</h5>
+      </div>
+      <div class="col-12 sidebar-menu-links">
+        <ul>
+          <li>
+            <a href="dashboard">
+              <div class="icon">
+                <img src="assets/images/settings.svg" alt="settings" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Settings
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="blogpost">
+              <div class="icon">
+                <img src="assets/images/help-center.svg" alt="help-center" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Help Center
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="row"
+      [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+    >
+      <div
+        class="col-12 dark-mode"
+        [ngClass]="
+          !sidebarToggler ? 'dark-mode' : 'dark-mode-without-background'
+        "
+      >
+        <div class="dark-mode-section">
+          <div class="dark-mode-icon">
+            <img src="assets/images/moon.svg" alt="moon" />
+          </div>
+          <div class="link-title">Dark Mode</div>
+        </div>
+        <div class="toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input (click)="toggleAppearance()" type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

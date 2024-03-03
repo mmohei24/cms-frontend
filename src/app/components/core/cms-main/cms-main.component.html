@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="sidebar" [ngClass]="toggler_val ? 'toggle' : 'beforeToggle'">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-12">
+      <div class="row header">
+        <div class="col-12 head-side">
+          <app-header></app-header>
+        </div>
+        <div class="col-12 content">
+          <main>
+            <router-outlet></router-outlet>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
